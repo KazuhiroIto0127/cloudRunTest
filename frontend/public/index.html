@@ -22,9 +22,32 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script>
+      // XMLHttpRequestオブジェクトを作成する
+      var xhr = new XMLHttpRequest();
+
+      // リクエストを準備する
+      xhr.open('GET', '/helloworld');
+
+      // レスポンスが返ってきた時の処理を設定する
+      xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+          // レスポンスデータをJSONとしてパースする
+          var jsonData = JSON.parse(xhr.responseText);
+
+          // HTMLにJSONを表示する
+          var outputDiv = document.getElementById('output');
+          outputDiv.innerHTML = JSON.stringify(jsonData);
+        }
+      };
+
+      // リクエストを送信する
+      xhr.send();
+    </script>
   </head>
   <body>
     test hello world!
     <p>こんにちは</p>
+    <div id="output"></div>
   </body>
 </html>

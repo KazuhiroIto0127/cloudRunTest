@@ -5,15 +5,26 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"encoding/json"
 )
+
+type User struct {
+	Id    int     `json:"id"`
+	Name  string  `json:"name"`
+	Email string  `json:"e-mail"`
+}
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	log.Print("helloworld: received a request")
-	target := os.Getenv("TARGET")
-	if target == "" {
-		target = "World"
-	}
-	fmt.Fprintf(w, "Hello %s!\n", target)
+	u := User{ Id : 1, Name : "Thome", Email : "thome@example.com"}
+
+    json, err := json.Marshal(u)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    w.Header().Set("Content-Type", "application/json; charset=utf-8")
+    w.Write(json)
 }
 
 func main() {

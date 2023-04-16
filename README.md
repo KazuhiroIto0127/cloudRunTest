@@ -19,4 +19,4 @@ gcloudをインストールした後に下記実行
 ## frontend
 firebase hosting
 
-
+- firebase deploy
