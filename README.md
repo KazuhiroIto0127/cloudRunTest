@@ -3,9 +3,20 @@
 ## imageをbuildして実行
 
 docker build -t cloudrunexp .
-docker run -e "PORT=3000" -p 3000:3000 -t cloudrunexp
+docker run -p 8080:8080 -t cloudrunexp
 
-## google cloud platformにデプロイする。
+curl http://localhost:8080
+hello world!
+
+## backend
+google cloud platformにデプロイする。
 gcloudをインストールした後に下記実行
 - gcloud init
+- gcloud builds submit --tag gcr.io/PROJECT_ID/helloworld
+- gcloud run deploy --image gcr.io/PROJECT_ID/helloworld
 - gcloud run deploy
+
+## frontend
+firebase hosting
+
+

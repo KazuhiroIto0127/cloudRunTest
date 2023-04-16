@@ -8,6 +8,7 @@ COPY . .
 RUN go build main.go
 
 FROM alpine
+
 COPY --from=builder /app /app
 
-CMD /app/main $PORT
+CMD /app/main
