@@ -21,3 +21,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDRUN_TEST_383809 }}'
           channelId: live
           projectId: cloudrun-test-383809
+          entryPoint: "./frontend"
