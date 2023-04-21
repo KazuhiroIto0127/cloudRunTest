@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent  } from "firebase/analytics";
+import HelloWorld from "./components/Helloworld";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APP_KEY,
@@ -27,6 +28,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
+    <HelloWorld />
   </React.StrictMode>
 );
 
